@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sélection de Spécialisation Master</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i> Enregistrement de spécialisation
+            </h2>
+            
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="student-name">
+                        <i class="fas fa-user"></i> Nom complet de l'étudiant
+                    </label>
+                    <input type="text" id="student-name" placeholder="Entrez votre nom complet" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-book"></i> Spécialisation demandée
+                    </label>
+                    <div class="specializations">
+                        <div class="specialization-card" data-specialization="Ecologie">
+                            <div class="check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3><i class="fas fa-tree"></i> Ecologie</h3>
+                            <p>Étude des interactions entre les organismes vivants et leur environnement</p>
+                        </div>
+                        
+                        <div class="specialization-card" data-specialization="Biodiversité et environnement">
+                            <div class="check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3><i class="fas fa-seedling"></i> Biodiversité et environnement</h3>
+                            <p>Étude de la diversité biologique et des impacts des changements environnementaux</p>
+                        </div>
+                        
+                        <div class="specialization-card" data-specialization="Protection des écosystèmes">
+                            <div class="check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <h3><i class="fas fa-shield-alt"></i> Protection des écosystèmes</h3>
+                            <p>Stratégies de protection des écosystèmes et conservation des ressources naturelles</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Confirmer le choix
+                </button>
+            </form>
+        </div>
+        
+        <div class="admin-section">
+            <h2 class="section-title">
+                <i class="fas fa-lock"></i> Section Administrateur
+            </h2>
+            
+            <div class="admin-controls">
+                <div class="password-input">
+                    <input type="password" id="admin-password" placeholder="Mot de passe administrateur">
+                    <button class="btn btn-secondary" id="show-data">
+                        <i class="fas fa-eye"></i> Afficher les données
+                    </button>
+                </div>
+                
+                <button class="btn btn-accent" id="export-excel" disabled>
+                    <i class="fas fa-file-excel"></i> Exporter vers Excel
+                </button>
+            </div>
+            
+            <div class="students-table">
+                <table id="students-data">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom de l'étudiant</th>
+                            <th>Spécialisation</th>
+                            <th>Date d'enregistrement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be inserted here -->
+                    </tbody>
+                </table>
+                
+                <div class="no-data" id="no-data-message">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Aucune donnée disponible</h3>
+                    <p>Veuillez entrer le mot de passe administrateur pour afficher les données</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="confirmation" id="confirmation">
+            <i class="fas fa-check-circle"></i>
+            <h2>Choix confirmé avec succès!</h2>
+            <p>Merci pour votre enregistrement. Votre choix a été enregistré.</p>
+            
+            <div class="selected-info">
+                <p><strong>Nom de l'étudiant:</strong> <span id="confirmed-name"></span></p>
+                <p><strong>Spécialisation choisie:</strong> <span id="confirmed-specialization"></span></p>
+                <p><strong>Date d'enregistrement:</strong> <span id="confirmed-date"></span></p>
+            </div>
+            
+            <button class="btn btn-primary" id="new-registration">
+                <i class="fas fa-redo"></i> Nouvel enregistrement
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
