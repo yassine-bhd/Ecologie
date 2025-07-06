@@ -1,0 +1,767 @@
+
+<!-- saved from url=(0049)file:///C:/Users/yassine/Documents/main.html.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار تخصص الماستر - إيكولوجي</title>
+    <link rel="stylesheet" href="./اختيار تخصص الماستر - إيكولوجي_files/all.min.css">
+    <script src="./اختيار تخصص الماستر - إيكولوجي_files/xlsx.full.min.js.download"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #558b2f;
+            --accent: #7cb342;
+            --text: #333;
+            --light: #f8f9fa;
+            --dark: #212121;
+            --white: #ffffff;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--primary-dark);
+            animation: fadeIn 1s ease;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-bottom: 5px solid var(--primary);
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark);
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-section, .admin-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease;
+        }
+        
+        .section-title {
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-light);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+        }
+        
+        .specializations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .specialization-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--light);
+            position: relative;
+            min-height: 180px;
+        }
+        
+        .specialization-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specialization-card.selected {
+            border-color: var(--primary);
+            background: rgba(46, 125, 50, 0.05);
+        }
+        
+        .specialization-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .specialization-card h3 i {
+            color: var(--primary);
+        }
+        
+        .specialization-card p {
+            color: var(--dark);
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+        
+        .specialization-card .check {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+        
+        .specialization-card.selected .check {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .specialization-card.selected .check i {
+            color: white;
+            display: block;
+        }
+        
+        .specialization-card .check i {
+            display: none;
+            font-size: 0.8rem;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #33691e;
+            transform: translateY(-3px);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #689f38;
+            transform: translateY(-3px);
+        }
+        
+        .confirmation {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .confirmation i {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: bounce 1s ease;
+        }
+        
+        .confirmation h2 {
+            color: var(--primary-dark);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .confirmation p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .selected-info {
+            background: rgba(46, 125, 50, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        
+        .selected-info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        
+        .selected-info strong {
+            color: var(--primary-dark);
+        }
+        
+        .admin-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .password-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background-color: rgba(46, 125, 50, 0.05);
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 30px;
+            color: #757575;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--primary-dark);
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .server-info {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .server-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .server-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .status-indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .server-data {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-30px);}
+            60% {transform: translateY(-15px);}
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-section, .admin-section {
+                padding: 20px;
+            }
+            
+            .admin-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1>اختيار تخصص الماستر</h1>
+            <p>للطلبة الناجحين في تخصص ليسانس إيكولوجي</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i> التسجيل في التخصص
+                </h2>
+                
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="student-name">
+                            <i class="fas fa-user"></i> الاسم الكامل للطالب
+                        </label>
+                        <input type="text" id="student-name" placeholder="أدخل اسمك الكامل" required="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-book"></i> التخصص المطلوب
+                        </label>
+                        <div class="specializations">
+                            <div class="specialization-card" data-specialization="Ecologie">
+                                <div class="check">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h3><i class="fas fa-tree"></i> Ecologie</h3>
+                                <p>دراسة التفاعلات بين الكائنات الحية وبيئتها والعلاقات في الأنظمة البيئية</p>
+                            </div>
+                            
+                            <div class="specialization-card" data-specialization="Biodiversité et environnement">
+                                <div class="check">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h3><i class="fas fa-seedling"></i> Biodiversité et environnement</h3>
+                                <p>دراسة التنوع البيولوجي وتأثيرات التغيرات البيئية على الكائنات الحية</p>
+                            </div>
+                            
+                            <div class="specialization-card" data-specialization="Protection des écosystèmes">
+                                <div class="check">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h3><i class="fas fa-shield-alt"></i> Protection des écosystèmes</h3>
+                                <p>استراتيجيات حماية النظم البيئية والحفاظ على الموارد الطبيعية</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> تأكيد الاختيار
+                    </button>
+                </form>
+            </div>
+            
+            <div class="admin-section">
+                <h2 class="section-title">
+                    <i class="fas fa-lock"></i> لوحة الإدارة
+                </h2>
+                
+                <div class="admin-controls">
+                    <div class="password-input">
+                        <input type="password" id="admin-password" placeholder="كلمة المرور الإدارية" style="width: 200px;">
+                        <button class="btn btn-secondary" id="show-data">
+                            <i class="fas fa-eye"></i> عرض البيانات
+                        </button>
+                    </div>
+                    
+                    <button class="btn btn-accent" id="export-excel" disabled="">
+                        <i class="fas fa-file-excel"></i> تصدير إلى Excel
+                    </button>
+                </div>
+                
+                <div class="students-table">
+                    <table id="students-data">
+                        <thead>
+                            <tr>
+                                <th>المسلسل</th>
+                                <th>اسم الطالب</th>
+                                <th>التخصص المختار</th>
+                                <th>تاريخ التسجيل</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be inserted here -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="no-data" id="no-data-message">
+                        <i class="fas fa-info-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <h3>لا توجد بيانات متاحة</h3>
+                        <p>الرجاء إدخال كلمة المرور الإدارية لعرض بيانات الطلبة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="confirmation" id="confirmation">
+            <i class="fas fa-check-circle"></i>
+            <h2>تم تأكيد الاختيار بنجاح!</h2>
+            <p>شكرًا لتسجيلك في برنامج الماستر. تم حفظ اختيارك بنجاح.</p>
+            
+            <div class="selected-info">
+                <p><strong>اسم الطالب:</strong> <span id="confirmed-name"></span></p>
+                <p><strong>التخصص المختار:</strong> <span id="confirmed-specialization"></span></p>
+                <p><strong>تاريخ التسجيل:</strong> <span id="confirmed-date"></span></p>
+            </div>
+            
+            <button class="btn btn-primary" id="new-registration">
+                <i class="fas fa-redo"></i> تسجيل جديد
+            </button>
+        </div>
+        
+        <div class="server-info">
+            <h3><i class="fas fa-server"></i> معلومات الخادم</h3>
+            
+            <div class="server-status">
+                <div class="status-indicator" style="background: rgb(76, 175, 80);"></div>
+                <p>حالة الخادم: <strong>نشط</strong> - الاتصال بالإنترنت: <strong>مستقر</strong></p>
+            </div>
+            
+            <p>يتم تخزين البيانات على خادم افتراضي آمن:</p>
+            <div class="server-data">
+                <p>نوع الخادم: خادم افتراضي مخصص</p>
+                <p>موقع البيانات: مركز بيانات آمن</p>
+                <p>نسخ احتياطي: يومي</p>
+                <p>الطلاب المسجلين: <span id="server-student-count">0</span></p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>كلية علوم الطبيعة و الحياة | قسم البيئة و المحيط | نظام اختيار تخصصات الماستر © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize students data
+        let students = [];
+        
+        // Load data from server (simulated)
+        function loadFromServer() {
+            // In a real app, this would be an API call
+            const savedData = localStorage.getItem('ecologyStudentsServer');
+            return savedData ? JSON.parse(savedData) : [];
+        }
+        
+        // Save data to server (simulated)
+        function saveToServer(data) {
+            // In a real app, this would be an API call
+            localStorage.setItem('ecologyStudentsServer', JSON.stringify(data));
+            document.getElementById('server-student-count').textContent = data.length;
+        }
+        
+        // Initial load
+        window.addEventListener('DOMContentLoaded', () => {
+            students = loadFromServer();
+            document.getElementById('server-student-count').textContent = students.length;
+        });
+        
+        // DOM elements
+        const form = document.getElementById('registration-form');
+        const specializationCards = document.querySelectorAll('.specialization-card');
+        const confirmationSection = document.getElementById('confirmation');
+        const confirmedName = document.getElementById('confirmed-name');
+        const confirmedSpecialization = document.getElementById('confirmed-specialization');
+        const confirmedDate = document.getElementById('confirmed-date');
+        const newRegistrationBtn = document.getElementById('new-registration');
+        const showDataBtn = document.getElementById('show-data');
+        const exportExcelBtn = document.getElementById('export-excel');
+        const adminPassword = document.getElementById('admin-password');
+        const studentsTable = document.querySelector('#students-data tbody');
+        const noDataMessage = document.getElementById('no-data-message');
+        
+        // Selected specialization
+        let selectedSpecialization = null;
+        
+        // Handle specialization selection
+        specializationCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected class from all cards
+                specializationCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                card.classList.add('selected');
+                
+                // Set selected specialization
+                selectedSpecialization = card.getAttribute('data-specialization');
+            });
+        });
+        
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!selectedSpecialization) {
+                alert('الرجاء اختيار تخصص قبل الإرسال');
+                return;
+            }
+            
+            const studentName = document.getElementById('student-name').value;
+            
+            // Create student object
+            const student = {
+                id: Date.now(),
+                name: studentName,
+                specialization: selectedSpecialization,
+                date: new Date().toLocaleString('ar-EG')
+            };
+            
+            // Add to students array
+            students.push(student);
+            
+            // Save to server
+            saveToServer(students);
+            
+            // Show confirmation
+            confirmedName.textContent = student.name;
+            confirmedSpecialization.textContent = student.specialization;
+            confirmedDate.textContent = student.date;
+            
+            // Hide form and show confirmation
+            document.querySelector('.form-section').style.display = 'none';
+            confirmationSection.style.display = 'block';
+            
+            // Reset form
+            form.reset();
+            specializationCards.forEach(c => c.classList.remove('selected'));
+            selectedSpecialization = null;
+        });
+        
+        // New registration
+        newRegistrationBtn.addEventListener('click', () => {
+            confirmationSection.style.display = 'none';
+            document.querySelector('.form-section').style.display = 'block';
+        });
+        
+        // Show data
+        showDataBtn.addEventListener('click', () => {
+            if (adminPassword.value === 'admin123') {
+                populateStudentsTable();
+                exportExcelBtn.disabled = false;
+            } else {
+                alert('كلمة المرور غير صحيحة');
+            }
+        });
+        
+        // Populate students table
+        function populateStudentsTable() {
+            studentsTable.innerHTML = '';
+            
+            if (students.length === 0) {
+                noDataMessage.style.display = 'block';
+                return;
+            }
+            
+            noDataMessage.style.display = 'none';
+            
+            students.forEach((student, index) => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${student.name}</td>
+                    <td>${student.specialization}</td>
+                    <td>${student.date}</td>
+                `;
+                
+                studentsTable.appendChild(row);
+            });
+        }
+        
+        // Export to Excel
+        exportExcelBtn.addEventListener('click', () => {
+            // Convert students array to worksheet
+            const ws = XLSX.utils.json_to_sheet(students.map(student => ({
+                'اسم الطالب': student.name,
+                'التخصص المختار': student.specialization,
+                'تاريخ التسجيل': student.date
+            })));
+            
+            // Create workbook
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'الطلبة');
+            
+            // Export to Excel
+            XLSX.writeFile(wb, 'طلبة_الماستر_إيكولوجي.xlsx');
+        });
+        
+        // Initialize admin panel
+        adminPassword.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                showDataBtn.click();
+            }
+        });
+        
+        // Simulate server connection
+        setInterval(() => {
+            const indicator = document.querySelector('.status-indicator');
+            indicator.style.background = '#4CAF50';
+            setTimeout(() => {
+                indicator.style.background = '#7cb342';
+            }, 750);
+        }, 1500);
+    </script></body></html>
